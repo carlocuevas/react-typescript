@@ -36,10 +36,14 @@ module.exports = {
         }],
       },
       { test: /\.js$/, use: { loader: 'babel-loader' }, exclude: /node_modules/ },
+      { test: /\.tsx?$/, use: { loader: 'awesome-typescript-loader'}, exclude: /node_modules/ },
       { test: /\.jsx$/, use: { loader: 'babel-loader' }, exclude: /node_modules/ },
     ],
   },
-  externals: project.externals,
+  externals: {
+    "react": "React",
+    "react-dom": "ReactDOM"
+  },
   devServer: {
     port: project.port,
   },
